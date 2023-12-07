@@ -31,7 +31,13 @@ function ProductCarousel() {
             slidesToSlide: 1 // optional, default to 1.
         }
     };
-
+    function getImagePath(imageName) {
+        try {
+            return require("../../assets/" + imageName);
+        } catch (error) {
+            return ""
+        }
+    }
     return (
         <Carousel
             swipeable={false}
@@ -52,9 +58,9 @@ function ProductCarousel() {
                     <Card sx={{ maxWidth: 200 }}>
                         <CardMedia
                             component="img"
-                            alt="green iguana"
+                            alt={prodotto.image}
                             height="150"
-                            image={require("../../assets/" + prodotto.image)}
+                            image={getImagePath(prodotto.image)}
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h6" component="div">
