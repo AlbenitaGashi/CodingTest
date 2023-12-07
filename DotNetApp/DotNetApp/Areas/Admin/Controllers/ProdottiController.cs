@@ -8,18 +8,19 @@ using Microsoft.EntityFrameworkCore;
 using DotNetApp.Data;
 using DotNetApp.Models;
 
-namespace DotNetApp.Controllers
+namespace DotNetApp.Areas.Admin.Controllers
 {
-    public class ProdottisController : Controller
+    [Area("Admin")]
+    public class ProdottiController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProdottisController(ApplicationDbContext context)
+        public ProdottiController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Prodottis
+        // GET: Admin/Prodotti
         public async Task<IActionResult> Index()
         {
               return _context.Prodotti != null ? 
@@ -27,7 +28,7 @@ namespace DotNetApp.Controllers
                           Problem("Entity set 'ApplicationDbContext.Prodotti'  is null.");
         }
 
-        // GET: Prodottis/Details/5
+        // GET: Admin/Prodotti/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Prodotti == null)
@@ -45,13 +46,13 @@ namespace DotNetApp.Controllers
             return View(prodotti);
         }
 
-        // GET: Prodottis/Create
+        // GET: Admin/Prodotti/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Prodottis/Create
+        // POST: Admin/Prodotti/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,7 +68,7 @@ namespace DotNetApp.Controllers
             return View(prodotti);
         }
 
-        // GET: Prodottis/Edit/5
+        // GET: Admin/Prodotti/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Prodotti == null)
@@ -83,7 +84,7 @@ namespace DotNetApp.Controllers
             return View(prodotti);
         }
 
-        // POST: Prodottis/Edit/5
+        // POST: Admin/Prodotti/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,7 +119,7 @@ namespace DotNetApp.Controllers
             return View(prodotti);
         }
 
-        // GET: Prodottis/Delete/5
+        // GET: Admin/Prodotti/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Prodotti == null)
@@ -136,7 +137,7 @@ namespace DotNetApp.Controllers
             return View(prodotti);
         }
 
-        // POST: Prodottis/Delete/5
+        // POST: Admin/Prodotti/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

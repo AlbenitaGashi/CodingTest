@@ -4,6 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
+<h1>Create</h1>
+
 <h4>Prodotti</h4>
 <hr />
 <div class="row">
@@ -27,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Image" class="control-label"></label>
-                <input type="file" asp-for="Image" class="form-control" />
+                <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">

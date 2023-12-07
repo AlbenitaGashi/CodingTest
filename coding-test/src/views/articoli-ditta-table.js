@@ -1,9 +1,13 @@
-import { Avatar, Paper, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@mui/material'
+import { Avatar, Box, Button, IconButton, Modal, Paper, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import ArticoliDitta from '../services/articoli-ditta-service'
+import ArticoliDittaDetails from '../components/articoli/articoli-ditta-details';
+import { Close } from '@mui/icons-material';
 
 function ArticoliDittaTable() {
   const [articoli, setArticoli] = useState([]);
+  const [currentArticolo, setCurrentArticolo] = useState([]);
+  const [modal, setModal] = useState(false);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -20,6 +24,8 @@ function ArticoliDittaTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const toggleModal = (articolo) => { setModal(!modal); setCurrentArticolo(articolo) }
+  const handleClose = () => { setModal(false) }
   return (
     <Paper className='table-wrapper'>
       <Table>
@@ -30,6 +36,7 @@ function ArticoliDittaTable() {
             <TableCell>Prezzo</TableCell>
             <TableCell>Aliquota</TableCell>
             <TableCell>Cashback &nbsp;(%)</TableCell>
+            <TableCell></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,6 +61,9 @@ function ArticoliDittaTable() {
                   <TableCell>
                     {articolo.percentuale_cashback} %
                   </TableCell>
+                  <TableCell>
+                    <Button onClick={() => { toggleModal(articolo) }}>Details</Button>
+                  </TableCell>
                 </TableRow>
               )
             })}
@@ -68,6 +78,14 @@ function ArticoliDittaTable() {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+      <Modal open={modal} onClose={handleClose}>
+        <div className="modal">
+          <IconButton className='modal-close' onClick={handleClose}>
+            <Close />
+          </IconButton>
+          <ArticoliDittaDetails articolo={currentArticolo} handleClose={handleClose} />
+        </div>
+      </Modal>
     </Paper>
   )
 }

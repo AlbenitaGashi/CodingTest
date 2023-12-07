@@ -1,12 +1,12 @@
-body{
+body {
     background-color: #F0ECE5;
 }
 
-a{
+a {
     all: unset;
 }
 
-.header{
+.header {
     min-height: 50px;
     padding: 0 15px;
     background-color: #161A30;
@@ -15,25 +15,29 @@ a{
     justify-content: start;
     align-items: center;
     gap: 1em;
-    &-login{
+
+    &-login {
         margin-left: auto;
     }
-    &-btn{
+
+    &-btn {
         cursor: pointer;
         padding: 5px 10px;
         border-radius: 5px;
-        &:hover{
+
+        &:hover {
             background-color: #F0ECE550;
             transition: 0.2s ease-in;
         }
-        &:active{
+
+        &:active {
             background-color: #F0ECE520;
             transform: scale(0.98);
         }
     }
 }
 
-.table-wrapper{
+.table-wrapper {
     margin: 2em;
 }
 
@@ -88,32 +92,88 @@ a{
             width: 100%;
             background-color: #19204b !important;
         }
+
+        &__subtitle {
+            text-align: center;
+        }
     }
 }
 
-.register-btn{
+.register-btn {
     cursor: pointer;
 }
 
-.react-multi-carousel-item{
+.react-multi-carousel-item {
     display: flex;
     justify-content: center;
-    & > div{
+    
+    &>div {
+        margin: 1em;    
         min-width: 200px !important;
+
+        &:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            filter: brightness(0.99);
+        }
+
     }
-    & img{
+
+    & img {
         object-fit: contain;
     }
 }
 
-.home{
-    &-title{
+.home {
+    padding: 20px;
+    background-color: #f0ece5;
+
+    &-title {
         font-size: 20pt;
         font-weight: bold;
-        margin-top: 0.5em;
-        margin-left: 2em;
+        background: #161a30;
+        color: white;
+        padding: 0.5em;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
     }
-    &-carousel{
-        margin-top: 2em;
+
+    &-carousel {
+        background-color: white;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin: 3em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+
+    &-close {
+        position: absolute !important;
+        right: 5px;
+        top: 5px;
+    }
+}
+
+.details {
+    display: flex;
+    gap: 2em;
+    
+    &-name{
+        text-align: center;
+    }
+    
+    &-img {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        border-radius: 5px;
     }
 }

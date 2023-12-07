@@ -61,7 +61,7 @@ function Login() {
                     <FormGroup className="text-center">
                         <Button className='auth-card__authbtn' variant="contained" onClick={() => handleSubmit()}>Login</Button>
                     </FormGroup>
-                    <small className={`text-center`}>You don't have an account? <Link to="/Register"><b className='register-btn'>Register</b></Link></small>
+                    <small className="auth-card__subtitle">You don't have an account? <b className='register-btn'>Register</b></small>
                 </div>
             </div>
         </div>
