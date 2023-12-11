@@ -78,10 +78,10 @@ function ProductCarousel() {
                                 <Favorite />
                             </IconButton>
                             <IconButton aria-label="delete">
-                                <RemoveRedEye />
+                                <ShoppingCart />
                             </IconButton>
                             <IconButton aria-label="delete">
-                                <ShoppingCart />
+                                <RemoveRedEye />
                             </IconButton>
                             <IconButton aria-label="delete">
                                 <Compare />

@@ -9,7 +9,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState();
 
     const handleSubmit = (e) => {
-
+        console.log(email + " " + password);
     }
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword)

@@ -46,7 +46,11 @@ a {
         background: #f0ece5;
     }
 
+    
     &-wrapper {
+        & svg {
+            fill: #19204b !important;
+        }
         display: flex;
         justify-content: center;
         align-items: center;
@@ -106,9 +110,9 @@ a {
 .react-multi-carousel-item {
     display: flex;
     justify-content: center;
-    
+
     &>div {
-        margin: 1em;    
+        margin: 1em;
         min-width: 200px !important;
 
         &:hover {
@@ -166,11 +170,11 @@ a {
 .details {
     display: flex;
     gap: 2em;
-    
-    &-name{
+
+    &-name {
         text-align: center;
     }
-    
+
     &-img {
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         width: 350px;
